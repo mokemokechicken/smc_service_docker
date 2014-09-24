@@ -7,6 +7,9 @@ RUN mkdir -p /application
 ADD setup_ruby.sh /application/setup_ruby.sh
 RUN sh /application/setup_ruby.sh
 
+ADD setup_supervisord.sh /application/setup_supervisord.sh
+RUN sh /application/setup_supervisord.sh
+
 ADD setup_smcwebservice.sh /application/setup_smcwebservice.sh
 RUN sh /application/setup_smcwebservice.sh
 
