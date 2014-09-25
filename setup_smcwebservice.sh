@@ -1,7 +1,11 @@
 cd /application
-git clone https://github.com/mokemokechicken/smcwebservice.git
+
+if [ ! -d smcwebservice ]; then
+  git clone https://github.com/mokemokechicken/smcwebservice.git
+fi
 
 cd smcwebservice
+git pull
 ./activator clean compile stage
 
 # port 9000

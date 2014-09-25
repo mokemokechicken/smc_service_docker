@@ -9,4 +9,3 @@ sed -i 's/^;\[include\]/[include]/' /etc/supervisord.conf
 sed -i 's|^;files =.*|files = supervisord.d/*.conf|' /etc/supervisord.conf
 
 mkdir -p /etc/supervisord.d /var/log/supervisor
-# supervisord
