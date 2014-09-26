@@ -1,6 +1,6 @@
 cd /etc/yum.repos.d
 curl -O http://people.centos.org/tru/devtools-1.1/devtools-1.1.repo
-yum --enablerepo=testing-1.1-devtools-6 install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
+yum -y --enablerepo=testing-1.1-devtools-6 install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
 
 export PATH="/opt/centos/devtoolset-1.1/root/usr/bin:$PATH"
 

@@ -20,4 +20,4 @@ ADD update_webui.sh /application/update_webui.sh
 
 EXPOSE 8000
 EXPOSE 9000
-CMD supervisord
+CMD supervisord -n
