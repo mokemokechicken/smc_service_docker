@@ -2,8 +2,6 @@ cd /etc/yum.repos.d
 curl -O http://people.centos.org/tru/devtools-1.1/devtools-1.1.repo
 yum -y --enablerepo=testing-1.1-devtools-6 install devtoolset-1.1-gcc devtoolset-1.1-gcc-c++
 
-export PATH="/opt/centos/devtoolset-1.1/root/usr/bin:$PATH"
-
 cd /application
 git clone https://github.com/mokemokechicken/GoodParts.git
 
@@ -15,7 +13,7 @@ export HOME=/root
 source ~/.rbenv/rbenv.sh
 rbenv local 2.0.0-p576
 bundle install --path vendor/bundle
-bin/install.sh
+PATH="/opt/centos/devtoolset-1.1/root/usr/bin:$PATH" bin/install.sh
 
 export RAILS_ENV=production
 bundle exec rake db:migrate
@@ -31,6 +29,8 @@ source ~/.rbenv/rbenv.sh
 
 sed -i 's|smc_service_url: .*|smc_service_url: "http://HTTP_HOST:9000/smc",|' config/initializers/generator_config.rb
 
+export RAILS_ENV=production
+bundle exec rake db:migrate
 bundle exec puma -p 8000 -t 8:32 -e production
 EOF
 
