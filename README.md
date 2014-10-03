@@ -1,12 +1,42 @@
-How To Use
-==========
+About
+======
+
+A Project for building Docker container of StateMachineGenerator.
+
+
+
+Requirement
+======
+
+* Docker (tested on version 1.2.0)
+
+
+Build
+----------
 
 ```
-# database file is only in the container.
-docker run -d -p 8000:8000 -p 9000:9000 -p 10022:22 mokemokechicken/smc_service
+make build
+```
 
-or
+Run
+-------
 
-# database file is exported at /db/production.sqlite3 on the host machine.
-docker run -d -p 8000:8000 -p 9000:9000 -p 10022:22 -v /db:/application/GoodParts/mnt mokemokechicken/smc_service
+```sh
+docker run -d -p 8000:8000 -p 9000:9000 -p 10022:22 -v /full/path/to/sqlitedb/dir/on/docker/host:/application/GoodParts/mnt mokemokechicken/smc_service
+```
+
+Access
+-------
+
+### HTTP
+
+```
+http://<docker_host>:8000/
+```
+
+### Login to Server
+
+```sh
+ssh -p 10022 root@<docker_host>
+(password is 'rootroot')
 ```
