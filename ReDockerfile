@@ -1,0 +1,6 @@
+FROM mokemokechicken/smc_service
+MAINTAINER Ken Morishita <k_morishita@yumemi.co.jp>
+
+EXPOSE 8000
+EXPOSE 9000
+CMD /application/init.sh

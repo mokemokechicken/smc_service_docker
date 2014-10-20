@@ -10,6 +10,9 @@ build:
 rebuild:
 	docker build --no-cache -t $(IMG) .
 
+recommit:
+	docker build -t $(IMG) - < ReDockerfile
+
 delete:
 	docker rmi $(IMG)
 
@@ -18,6 +21,9 @@ bash:
 
 push:
 	docker push $(IMG)
+
+run:
+	docker run -d -p 8000:8000 -p 9000:9000 -p 10022:22 -v /var/lib/smc:/application/GoodParts/mnt $(IMG)
 
 repack:
 	time docker export `docker run -d $(IMG) echo` > image.tar
